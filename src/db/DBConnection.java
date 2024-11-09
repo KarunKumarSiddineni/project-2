@@ -5,7 +5,8 @@ import java.sql.DriverManager;
 
 public class DBConnection {
 
-    static Connection con;
+    static Connection con1;
+    int a;
 
     @SuppressWarnings({"UseSpecificCatch", "CallToPrintStackTrace"})
     public static Connection createConnection() {
@@ -16,13 +17,13 @@ public class DBConnection {
             String pass = "Prabhu@123";
             String url = "jdbc:mysql://localhost:3306/student_d?autoReconnect=true&useSSL=false";
 
-            con = DriverManager.getConnection(url, user, pass);
+            con1 = DriverManager.getConnection(url, user, pass);
 
         } catch (Exception ex) {
             ex.printStackTrace();
         }
 
-        return con;
+        return con1;
     }
 }
 

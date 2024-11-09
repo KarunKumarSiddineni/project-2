@@ -2,6 +2,7 @@ package dao;
 import db.DBConnection;
 import model.Student;
 import java.sql.Connection;
+import java.sql.Driver;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -16,7 +17,13 @@ public class StudentDao implements StudentDaoInterface{
     public boolean insertStudent(Student s) {
         boolean flag=false;
         try{
-            Connection con= DBConnection.createConnection();
+            Connection con;
+           // String url="";
+           // String user="";
+            //String pass="";
+
+          //  con=Driver.getConnection(url,user,pass);
+            con= DBConnection.createConnection();
             String query="insert into student_details(sname,clgname,city,percentage) value(?,?,?,?)";
             PreparedStatement pst=con.prepareStatement(query);
             pst.setString(1,s.getName());
